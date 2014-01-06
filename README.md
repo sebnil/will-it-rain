@@ -1,7 +1,7 @@
 will-it-rain
 ============
 
-Use SparkCore to light up a LED if you should bring an umbrella today. 
+Use Spark Core to light up a LED if you should bring an umbrella today. 
 
 # How it works
 The SparkCore is polling a php script to see if it will rain the next couple of hours. 
