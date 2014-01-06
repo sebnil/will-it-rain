@@ -2,7 +2,6 @@
 ini_set('error_reporting', 'E_ALL');
 ini_set('display_errors', 'On');
 
-//$url = "http://www.yr.no/sted/Sverige/V%C3%A4stra_G%C3%B6taland/G%C3%B6teborg/forecast.xml";
 $url = "http://www.yr.no/sted/Sverige/V%C3%A4stra_G%C3%B6taland/G%C3%B6teborg/varsel_time_for_time.xml";
 
 $forecastXml = new SimpleXMLElement(curl_download($url));
@@ -11,13 +10,14 @@ $times = $forecastXml->forecast->tabular;
 
 $rain = false;
 for ($i = 0; $i<10; $i++) {
-	//print_r($forecastXml->forecast->tabular->time[$i]->precipitation->attributes()->value);	
-	if ((float)$forecastXml->forecast->tabular->time[$i]->precipitation->attributes()->value > 0) {
-		// gonna rain
-		$rain = true;
-		break;
-	}
+    //print_r($forecastXml->forecast->tabular->time[$i]->precipitation->attributes()->value);   
+    if ((float)$forecastXml->forecast->tabular->time[$i]->precipitation->attributes()->value > 0) {
+        // gonna rain
+        $rain = true;
+        break;
+    }
 }
+echo "rain: ";
 echo $rain?1:0;
 
 
